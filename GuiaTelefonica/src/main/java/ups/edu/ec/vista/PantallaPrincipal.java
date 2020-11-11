@@ -8,16 +8,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     PantallaCrearUsuario pantallaCrearUsuario;
     PantallaListarUsuarios pantallaListarUsuarios;
     
+    int idLogueo;
+    
+    
     public PantallaPrincipal() {
         initComponents();
-        
+        helpMenu.setVisible(false);
         jMenuItem3.setVisible(false);
         
         this.setExtendedState(PantallaPrincipal.MAXIMIZED_BOTH); 
         controladorPersona=new ControladorPersona();
         
         
-        pantallaLoguearusuario=new PantallaLoguearusuario(controladorPersona);
+        pantallaLoguearusuario=new PantallaLoguearusuario(controladorPersona,this);
         pantallaCrearUsuario=new PantallaCrearUsuario(controladorPersona);
         pantallaListarUsuarios=new PantallaListarUsuarios(controladorPersona);
         pantallaBorrarUsuario=new PantallaBorrarUsuario(controladorPersona);
@@ -75,6 +78,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         fileMenu.add(saveAsMenuItem);
 
         jMenuItem3.setText("Editar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem3);
 
         menuBar.add(fileMenu);
@@ -93,6 +101,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Salir");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
         menuBar.add(editMenu);
@@ -152,10 +165,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         
-        
+        desktopPane.add(pantallaLoguearusuario);
+        pantallaLoguearusuario.setVisible(true);
         
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
+    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+        nomostrar();
+    }//GEN-LAST:event_copyMenuItemActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        PantallaEditarUsuario pantallaEditarUsuario=new PantallaEditarUsuario(controladorPersona, idLogueo);
+        System.out.println(idLogueo);
+        desktopPane.add(pantallaEditarUsuario);
+        pantallaEditarUsuario.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+public void mostrar(int id){
+    helpMenu.setVisible(true);
+        jMenuItem3.setVisible(true);
+        idLogueo=id;
+        
+       
+}
+public void nomostrar(){
+    helpMenu.setVisible(false);
+        jMenuItem3.setVisible(false);
+        idLogueo=-1;
+}
     /**
      * @param args the command line arguments
      */

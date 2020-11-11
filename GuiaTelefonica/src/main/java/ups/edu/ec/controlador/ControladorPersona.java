@@ -16,16 +16,18 @@ public class ControladorPersona extends AbstractControler<Persona>{
         return null;
         
     }
-    public boolean loguear(String nombre, String contrasena){
+    public Persona loguear(String nombre, String contrasena){
         List<Persona>p=getLista();
         
         for (int i = 0; i < p.size(); i++) {
             if(p.get(i).getNombre().equalsIgnoreCase(nombre)&&p.get(i).getContrasena().equals(contrasena)){
-                return true;
+                return p.get(i);
             }
         }
-        return false;
+        return null;
     }
+    
+    
     
     
 }

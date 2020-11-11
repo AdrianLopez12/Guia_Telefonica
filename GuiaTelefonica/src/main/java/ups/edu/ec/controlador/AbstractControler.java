@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class AbstractControler<E> {
     
-    private List<E> lista;
+    public List<E> lista;
     public AbstractControler(){
         lista=new ArrayList();
     }
@@ -24,6 +24,7 @@ public abstract class AbstractControler<E> {
         
         for (int i = 0; i < lista.size(); i++) {
            E objeto=lista.get(i);
+         
            if(objeto.equals(comparacion)){
                return i;
            }
@@ -34,12 +35,13 @@ public abstract class AbstractControler<E> {
     
     public boolean actualizar(E objeto){
          int index=BuscarPocicion(objeto);
-         if(index>0){
+        System.out.println(index);
+         if(index>=0){
          lista.set(index, objeto);     
         
          }
          
-         return (index>0);
+         return (index>=0);
     }
     public List<E> getLista(){
         return lista;

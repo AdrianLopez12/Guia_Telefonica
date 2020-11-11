@@ -3,12 +3,15 @@ package ups.edu.ec.vista;
 
 import javax.swing.JOptionPane;
 import ups.edu.ec.controlador.ControladorPersona;
+import ups.edu.ec.modelo.Persona;
 public class PantallaLoguearusuario extends javax.swing.JInternalFrame {
 ControladorPersona controladorPersona;
+PantallaPrincipal pantallaPrincipal;
 
-    public PantallaLoguearusuario(ControladorPersona controladorPersona) {
+    public PantallaLoguearusuario(ControladorPersona controladorPersona, PantallaPrincipal pantallaPrincipal) {
         initComponents();
         this.controladorPersona=controladorPersona;
+        this.pantallaPrincipal=pantallaPrincipal;
     }
 
     @SuppressWarnings("unchecked")
@@ -81,9 +84,10 @@ ControladorPersona controladorPersona;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombre=jTextField1.getText();
         String contrasena=jTextField2.getText();
-        boolean cent=controladorPersona.loguear(nombre, contrasena);
-        if(cent==true){
+        Persona cent=controladorPersona.loguear(nombre, contrasena);
+        if(cent!=null){
             JOptionPane.showMessageDialog(this, "usuario valido");
+            pantallaPrincipal.mostrar(cent.getId());
         }else{
             JOptionPane.showMessageDialog(this, "usuario no valido");
         }
@@ -93,6 +97,7 @@ ControladorPersona controladorPersona;
         jTextField1.setText("");
         jTextField2.setText("");
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
