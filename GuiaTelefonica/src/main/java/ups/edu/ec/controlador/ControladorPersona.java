@@ -1,6 +1,8 @@
 package ups.edu.ec.controlador;
 
-public class ControladorPersona {
+import ups.edu.ec.modelo.Persona;
+
+public class ControladorPersona extends AbstractControler<Persona>{
  
     
     

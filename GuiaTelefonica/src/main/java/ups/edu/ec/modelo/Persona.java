@@ -11,6 +11,13 @@ public class Persona {
     public Persona() {
     }
 
+    public Persona(int id, String nombre, String apellido) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+    
+
     public int getId() {
         return id;
     }
@@ -70,7 +77,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + '}';
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + '}'+"\n";
     }
     
     

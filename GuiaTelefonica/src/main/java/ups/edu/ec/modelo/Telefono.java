@@ -4,15 +4,26 @@ public class Telefono {
   private int id;
 private String operadora;
 private String numero;
-
+private Persona propietario;
     public Telefono() {
     }
 
-    public Telefono(int id, String operadora, String numero) {
+    public Telefono(int id, String operadora, String numero, Persona propietario) {
         this.id = id;
         this.operadora = operadora;
         this.numero = numero;
+        this.propietario = propietario;
     }
+
+    public Persona getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Persona propietario) {
+        this.propietario = propietario;
+    }
+
+   
 
     public int getId() {
         return id;
@@ -65,8 +76,10 @@ private String numero;
 
     @Override
     public String toString() {
-        return "Telefono{" + "id=" + id + ", operadora=" + operadora + ", numero=" + numero + '}';
+        return "Telefono{" + "id=" + id + ", operadora=" + operadora + ", numero=" + numero + ", propietario=" + propietario + '}';
     }
+
+   
 
 
 }

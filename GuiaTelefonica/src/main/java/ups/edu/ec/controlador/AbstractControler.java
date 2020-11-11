@@ -41,5 +41,12 @@ public abstract class AbstractControler<E> {
          
          return (index>0);
     }
+    public List<E> getLista(){
+        return lista;
+    }
+    public void setLista(List<E> lista){
+        this.lista=lista;
+    }
+    
     
 }
