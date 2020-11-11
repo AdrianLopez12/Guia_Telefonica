@@ -26,6 +26,17 @@ public class ControladorPersona extends AbstractControler<Persona>{
         }
         return null;
     }
+
+    @Override
+    public boolean validarObjeto(Persona objeto) {
+        String contrasena=objeto.getContrasena();
+        if(contrasena.length()<5){
+            return false;
+        }else{
+        return true;    
+        }
+        
+    }
     
     
     

@@ -109,16 +109,21 @@ public class PantallaCrearTelefono extends javax.swing.JInternalFrame {
         
         Persona p=controladorPersona.buscarUsuario(idper);
         Telefono t =new Telefono(id, operadora, numero, p);
-        boolean cent=controladorTelefono.crear(t);
         
+        boolean c=controladorTelefono.validarObjeto(t);
         
-        
+        if(c==true){
+            boolean cent=controladorTelefono.crear(t);
         if(cent==true){
             JOptionPane.showMessageDialog(this, "Telefono creado");
             
         }else{
             JOptionPane.showMessageDialog(this, "Telefono no creado");
         }
+        }else{
+            JOptionPane.showMessageDialog(this, "Numero invalido");
+        }
+
         borrar();
         
         

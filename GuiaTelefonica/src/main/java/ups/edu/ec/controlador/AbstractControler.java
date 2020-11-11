@@ -49,6 +49,6 @@ public abstract class AbstractControler<E> {
     public void setLista(List<E> lista){
         this.lista=lista;
     }
-    
+    public abstract boolean validarObjeto(E objeto);
     
 }
