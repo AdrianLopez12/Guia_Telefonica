@@ -25,6 +25,15 @@ public class ControladorTelefono extends AbstractControler<Telefono>{
         }
     return null;
     }
+    public Telefono BuscarTelefonoPorId(int idtelf){
+        List<Telefono>telf=getLista();
+        for (int i = 0; i < telf.size(); i++) {
+            if(telf.get(i).getId()==idtelf){
+                return telf.get(i);
+            }
+        }
+        return null;
+    }
     
     
     

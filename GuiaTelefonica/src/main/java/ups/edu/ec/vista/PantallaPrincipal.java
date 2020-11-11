@@ -4,6 +4,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     ControladorPersona controladorPersona;
     ControladorTelefono controladorTelefono;
     
+    PantallaBorrarTelefono pantallaBorrarTelefono;
     PantallaListarTelefono pantallaListarTelefono;
     PantallaLoguearusuario pantallaLoguearusuario;
     PantallaBorrarUsuario pantallaBorrarUsuario;
@@ -146,6 +147,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         helpMenu.add(jMenuItem1);
 
         jMenuItem2.setText("Borrar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         helpMenu.add(jMenuItem2);
 
         menuBar.add(helpMenu);
@@ -221,6 +227,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        pantallaBorrarTelefono=new PantallaBorrarTelefono(controladorTelefono);
+        desktopPane.add(pantallaBorrarTelefono);
+        pantallaBorrarTelefono.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 public void mostrar(int id){
     helpMenu.setVisible(true);
         jMenuItem3.setVisible(true);

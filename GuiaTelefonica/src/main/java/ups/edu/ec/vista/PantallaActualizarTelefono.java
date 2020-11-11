@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ups.edu.ec.vista;
 
 import javax.swing.JOptionPane;
@@ -64,6 +59,11 @@ public class PantallaActualizarTelefono extends javax.swing.JInternalFrame {
         });
 
         jButton3.setText("Salir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Comprobar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +137,8 @@ public class PantallaActualizarTelefono extends javax.swing.JInternalFrame {
     boolean c=controladorTelefono.actualizar(t);
         if(c==true){
             JOptionPane.showMessageDialog(this, "Telefono actualizado");
+            esconder();
+            borrar();
         }else{
             JOptionPane.showMessageDialog(this, "Telefono no actualizado");
         }
@@ -150,11 +152,23 @@ public class PantallaActualizarTelefono extends javax.swing.JInternalFrame {
             mostrar();
         }else{
             JOptionPane.showMessageDialog(this, "telefono incorrecto");
+            borrar();
         }
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        esconder();
+        borrar();
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+public void borrar(){
+    jTextField1.setText("");
+    jTextField2.setText("");
+    jTextField3.setText("");
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
