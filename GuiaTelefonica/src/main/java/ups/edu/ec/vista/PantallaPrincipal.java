@@ -3,18 +3,24 @@ import ups.edu.ec.controlador.*;
 public class PantallaPrincipal extends javax.swing.JFrame {
     ControladorPersona controladorPersona;
     
-    
-    
+    PantallaLoguearusuario pantallaLoguearusuario;
+    PantallaBorrarUsuario pantallaBorrarUsuario;
     PantallaCrearUsuario pantallaCrearUsuario;
     PantallaListarUsuarios pantallaListarUsuarios;
     
     public PantallaPrincipal() {
         initComponents();
+        
+        jMenuItem3.setVisible(false);
+        
         this.setExtendedState(PantallaPrincipal.MAXIMIZED_BOTH); 
         controladorPersona=new ControladorPersona();
         
+        
+        pantallaLoguearusuario=new PantallaLoguearusuario(controladorPersona);
         pantallaCrearUsuario=new PantallaCrearUsuario(controladorPersona);
         pantallaListarUsuarios=new PantallaListarUsuarios(controladorPersona);
+        pantallaBorrarUsuario=new PantallaBorrarUsuario(controladorPersona);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -26,7 +32,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
@@ -61,16 +67,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Borrar");
-        fileMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Actualizar");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                saveAsMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        fileMenu.add(saveAsMenuItem);
+
+        jMenuItem3.setText("Editar");
+        fileMenu.add(jMenuItem3);
 
         menuBar.add(fileMenu);
 
@@ -79,6 +84,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Loguear");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setMnemonic('y');
@@ -122,10 +132,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
-
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         desktopPane.add(pantallaCrearUsuario);
         pantallaCrearUsuario.setVisible(true);
@@ -138,6 +144,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pantallaListarUsuarios.setVisible(true);
         
     }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        desktopPane.add(pantallaBorrarUsuario);
+        pantallaBorrarUsuario.setVisible(true);
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_cutMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,11 +198,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;

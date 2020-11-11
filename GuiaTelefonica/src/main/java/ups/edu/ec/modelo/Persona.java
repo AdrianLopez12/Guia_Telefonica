@@ -6,16 +6,37 @@ public class Persona {
     private int id;
     private String nombre;
     private String apellido;
+    private String contrasena;
     private List<Telefono> telefono;
 
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellido) {
+    public Persona(int id, String nombre, String apellido, String contrasena, List<Telefono> telefono) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
     }
+
+    public Persona(int id, String nombre, String apellido, String contrasena) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contrasena = contrasena;
+    }
+    
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    
     
 
     public int getId() {
@@ -77,8 +98,10 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + '}'+"\n";
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", contrasena=" + contrasena + ", telefono=" + telefono + '}'+"\n";
     }
+
+    
     
     
 }
