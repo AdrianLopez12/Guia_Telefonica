@@ -76,7 +76,7 @@ private Persona propietario;
 
     @Override
     public String toString() {
-        return "Telefono{" + "id=" + id + ", operadora=" + operadora + ", numero=" + numero + ", propietario=" + propietario + '}';
+        return "Telefono{" + "id=" + id + ", operadora=" + operadora + ", numero=" + numero + ", propietario=" + propietario + '}'+"\n";
     }
 
    

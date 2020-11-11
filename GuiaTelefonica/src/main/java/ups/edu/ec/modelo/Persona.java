@@ -7,7 +7,7 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String contrasena;
-    private List<Telefono> telefono;
+
 
     public Persona() {
     }
@@ -17,7 +17,7 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasena = contrasena;
-        this.telefono = telefono;
+  
     }
 
     public Persona(int id, String nombre, String apellido, String contrasena) {
@@ -63,13 +63,7 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public List<Telefono> getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(List<Telefono> telefono) {
-        this.telefono = telefono;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -102,7 +96,7 @@ public class Persona {
  
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", contrasena=" + contrasena + ", telefono=" + telefono + '}'+"\n";
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", contrasena=" + contrasena + ", telefono=" + '}'+"\n";
     }
 
     

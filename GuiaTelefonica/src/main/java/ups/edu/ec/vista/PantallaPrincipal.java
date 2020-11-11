@@ -2,11 +2,15 @@ package ups.edu.ec.vista;
 import ups.edu.ec.controlador.*;
 public class PantallaPrincipal extends javax.swing.JFrame {
     ControladorPersona controladorPersona;
+    ControladorTelefono controladorTelefono;
     
+    PantallaListarTelefono pantallaListarTelefono;
     PantallaLoguearusuario pantallaLoguearusuario;
     PantallaBorrarUsuario pantallaBorrarUsuario;
     PantallaCrearUsuario pantallaCrearUsuario;
     PantallaListarUsuarios pantallaListarUsuarios;
+    PantallaCrearTelefono pantallaCrearTelefono;
+    PantallaActualizarTelefono pantallaActualizarTelefono;
     
     int idLogueo;
     
@@ -18,7 +22,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         this.setExtendedState(PantallaPrincipal.MAXIMIZED_BOTH); 
         controladorPersona=new ControladorPersona();
+        controladorTelefono=new ControladorTelefono();
         
+      
         
         pantallaLoguearusuario=new PantallaLoguearusuario(controladorPersona,this);
         pantallaCrearUsuario=new PantallaCrearUsuario(controladorPersona);
@@ -115,13 +121,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         contentMenuItem.setMnemonic('c');
         contentMenuItem.setText("Crear");
+        contentMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contentMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(contentMenuItem);
 
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("Listar");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(aboutMenuItem);
 
         jMenuItem1.setText("Actualizar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         helpMenu.add(jMenuItem1);
 
         jMenuItem2.setText("Borrar");
@@ -176,11 +197,30 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         PantallaEditarUsuario pantallaEditarUsuario=new PantallaEditarUsuario(controladorPersona, idLogueo);
-        System.out.println(idLogueo);
         desktopPane.add(pantallaEditarUsuario);
         pantallaEditarUsuario.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
+          pantallaCrearTelefono=new PantallaCrearTelefono(controladorTelefono, controladorPersona, idLogueo);
+          desktopPane.add(pantallaCrearTelefono);
+          pantallaCrearTelefono.setVisible(true);
+    }//GEN-LAST:event_contentMenuItemActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        pantallaListarTelefono =new PantallaListarTelefono(controladorTelefono, idLogueo);
+        desktopPane.add(pantallaListarTelefono);
+        pantallaListarTelefono.setVisible(true);
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        pantallaActualizarTelefono =new PantallaActualizarTelefono(controladorTelefono);
+        desktopPane.add(pantallaActualizarTelefono);
+        pantallaActualizarTelefono.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 public void mostrar(int id){
     helpMenu.setVisible(true);
         jMenuItem3.setVisible(true);
