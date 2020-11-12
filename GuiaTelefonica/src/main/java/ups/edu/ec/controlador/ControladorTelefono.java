@@ -38,9 +38,9 @@ public class ControladorTelefono extends AbstractControler<Telefono>{
     @Override
     public boolean validarObjeto(Telefono objeto) {
         if(objeto.getNumero().length()!=10){
-            return false;
+            return true;
         }else{
-        return true;
+        return false;
         }
     }
     
