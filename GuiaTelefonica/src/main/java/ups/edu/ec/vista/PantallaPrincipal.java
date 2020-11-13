@@ -215,7 +215,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
-        pantallaListarTelefono =new PantallaListarTelefono(controladorTelefono, idLogueo);
+        pantallaListarTelefono =new PantallaListarTelefono(controladorTelefono );
         desktopPane.add(pantallaListarTelefono);
         pantallaListarTelefono.setVisible(true);
     }//GEN-LAST:event_aboutMenuItemActionPerformed

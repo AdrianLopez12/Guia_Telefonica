@@ -15,11 +15,11 @@ import ups.edu.ec.modelo.Telefono;
 public class PantallaListarTelefono extends javax.swing.JInternalFrame {
 
     ControladorTelefono controladorTelefono=new ControladorTelefono();
-    int id;
-    public PantallaListarTelefono(ControladorTelefono controladorTelefono,int id) {
+    
+    public PantallaListarTelefono(ControladorTelefono controladorTelefono) {
         initComponents();
         this.controladorTelefono=controladorTelefono;
-        this.id=id;
+        
     }
 
     /**
