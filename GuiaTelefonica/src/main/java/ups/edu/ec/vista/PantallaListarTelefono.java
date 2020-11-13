@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package ups.edu.ec.vista;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ups.edu.ec.controlador.ControladorTelefono;
 import ups.edu.ec.modelo.Telefono;
 
@@ -81,6 +85,8 @@ public class PantallaListarTelefono extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int id=imprimirCualquirListaReflexion(controladorTelefono.getLista());
+        System.out.println(id);
         List<Telefono>telf=controladorTelefono.ListarPorUsuario(id);
         jTextArea1.setText(telf.toString());
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -89,7 +95,22 @@ public class PantallaListarTelefono extends javax.swing.JInternalFrame {
        jTextArea1.setText("");
        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+public static int imprimirCualquirListaReflexion(List lista){
+    for(Object obj: lista){
+        Method[] metodos =obj.getClass().getMethods();
+        for(Method m : metodos){
+            if(m.getName().equals("getId")){
+                try{
+                    int cadena=(Integer)m.invoke(obj, null);
+                    return cadena;
+                }catch(IllegalAccessException | IllegalArgumentException | InvocationTargetException ex){
+                    Logger.getLogger(PantallaListarTelefono.class.getName()).log(Level.SEVERE,null,ex);
+                }
+            }
+        }
+    }
+    return -1;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
