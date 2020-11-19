@@ -1,14 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ups.edu.ec.modelo;
 
-/**
- *
- * @author Casa
- */
+import ups.edu.ec.controlador.*;
+import ups.edu.ec.interfaces.EstadoVentanilla;
+
 public class Vendedor {
+String cajero;    
+    EstadoVentanilla estado;
+
+    public Vendedor() {
+        this.estado = new Abierta();
+    }
+    
+    public void suspende(){
+        estado=new Suspendida();
+    }
+    public void cerrar(){
+        estado=new Cerrada();
+                
+    }
+    public void abrir(){
+        estado=new Abierta();
+                
+    }
+    public void atiende(Persona persona){
+        
+        estado.atiende(persona);
+    }
+
+   
+    
     
 }
