@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="CasinoPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>ups.edu.ec.modelo.Cliente</class>
+    <class>ups.edu.ec.modelo.Juegos</class>
+    <properties>
+      <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/casinoBD"/>
+      <property name="eclipselink.jdbc.user" value="postgres"/>
+      <property name="eclipselink.jdbc.password" value="3103"/>
+      <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="eclipselink.ddl-generation" value="create-tables"/>
+    </properties>
+  </persistence-unit>
+</persistence>
